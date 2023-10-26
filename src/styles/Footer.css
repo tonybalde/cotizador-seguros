@@ -1,0 +1,15 @@
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.history-icon{
+    height: 64px;
+    width: auto;
+}
+
+.text-footer{
+    font-size: 32px;
+}
