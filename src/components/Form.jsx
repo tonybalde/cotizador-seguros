@@ -13,6 +13,13 @@ const Form = () => {
 
   const [historialConsultas, setHistorialConsultas] = useState([]);
   
+  useEffect(() => {
+    const historialGuardado = localStorage.getItem('historialConsultas');
+    if (historialGuardado) {
+      const historialJSON = JSON.parse(historialGuardado);
+      setHistorialConsultas(historialJSON);
+    }
+  }, []);
 
   useEffect(() => {
     // Realizar la solicitud con Axios
@@ -55,10 +62,9 @@ const Form = () => {
         timer: 2000,
         icon: "success"
       });
-        
     }
 
-    
+
     if (propiedadFactor && ubicacionFactor) {
       const precioEstimado = costoM2 * metrosCuadrados * propiedadFactor * ubicacionFactor;
       setGuardarVisible(true);
@@ -84,25 +90,25 @@ const Form = () => {
       precioEstimado: precioEstimado,
     };
   
-
     const nuevoHistorial = [...historialConsultas, cotizacion];
 
     setHistorialConsultas(nuevoHistorial);
 
-    // Guardar el historial en el localStorage
+    const mostrarAlertaGuardado = () => {
+      Swal.fire({
+        title: "Guardado",
+        text: "Cotización guardada con exito",
+        timer: 2000,
+        icon: "success"
+      });
+    }
+
+    // Guardar el historial completo en el localStorage
     const historialJSON = JSON.stringify(nuevoHistorial);
     localStorage.setItem('historialConsultas', historialJSON);
-
-    alert('Cotización guardada en el historial');
-
-
-    // // Convertir el objeto en una cadena JSON
-    // const cotizacionJSON = JSON.stringify(cotizacion);
-  
-    // // Guardar la consulta de la cotización en el localStorage
-    // localStorage.setItem('cotizacionGuardada', cotizacionJSON);
-  
-    // alert('Cotización guardada en el historial');
+    
+    mostrarAlertaGuardado();
+   
   };
   
 
