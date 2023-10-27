@@ -10,6 +10,8 @@ const Form = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [precioEstimado, setPrecioEstimado] = useState(0);
   const [guardarVisible, setGuardarVisible] = useState(false);
+
+  const [historialConsultas, setHistorialConsultas] = useState([]);
   
 
   useEffect(() => {
@@ -82,13 +84,25 @@ const Form = () => {
       precioEstimado: precioEstimado,
     };
   
-    // Convertir el objeto en una cadena JSON
-    const cotizacionJSON = JSON.stringify(cotizacion);
-  
-    // Guardar la consulta de la cotización en el localStorage
-    localStorage.setItem('cotizacionGuardada', cotizacionJSON);
-  
+
+    const nuevoHistorial = [...historialConsultas, cotizacion];
+
+    setHistorialConsultas(nuevoHistorial);
+
+    // Guardar el historial en el localStorage
+    const historialJSON = JSON.stringify(nuevoHistorial);
+    localStorage.setItem('historialConsultas', historialJSON);
+
     alert('Cotización guardada en el historial');
+
+
+    // // Convertir el objeto en una cadena JSON
+    // const cotizacionJSON = JSON.stringify(cotizacion);
+  
+    // // Guardar la consulta de la cotización en el localStorage
+    // localStorage.setItem('cotizacionGuardada', cotizacionJSON);
+  
+    // alert('Cotización guardada en el historial');
   };
   
 
