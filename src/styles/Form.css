@@ -43,3 +43,15 @@ select, input{
 .importe{
     font-weight: bold;
 }
+
+.history-icon{
+    height: 64px;
+    width: auto;
+}
+
+.historial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}

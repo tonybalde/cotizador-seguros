@@ -1,12 +1,18 @@
-import history from "../assets/history.png";
+
+import React from "react";
 import "../styles/Footer.css";
+import github from "../assets/github.png";
 
 const Footer = () => {
-    return (
-        <div className="footer-container">
-             <h2 className="text-footer">Ver el Historial</h2><img src={history} alt="" className="history-icon"/>
-        </div>
-    );
-}
+  
+  return (
+    <div className="footer-container">
+      <span>Desarrollado por <b>Tony Baldessari</b></span><a href="https://www.github.com/tonybalde" target="_blank" rel="noreferrer"><img src={github} className="github-icon" alt=""/></a>
+    </div>
+  );
+};
 
 export default Footer;
+
+
+

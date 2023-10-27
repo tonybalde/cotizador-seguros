@@ -5,11 +5,15 @@
     gap: 8px;
 }
 
-.history-icon{
-    height: 64px;
-    width: auto;
-}
-
 .text-footer{
     font-size: 32px;
+}
+
+.github-icon{
+    height: 32px;
+    transition: .5s ease-in-out;
+}
+
+.github-icon:hover{
+    transform: rotate(360deg);
 }

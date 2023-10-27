@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../styles/Form.css";
+import history from "../assets/history.png";
 import Swal from 'sweetalert2';
 import moment from 'moment';
+import Historial from "../components/Historial";
+
 
 const Form = () => {
   const [data, setData] = useState(null);
@@ -112,8 +115,6 @@ const Form = () => {
   };
   
 
-
-
   return (
     <div>
       {data && (
@@ -147,7 +148,7 @@ const Form = () => {
           </select>
 
           <label htmlFor="metros2">Ingresa los Metros cuadrados:</label>
-          <input type="number" id="metros2" min="20" max="500" required />
+          <input type="number" id="metros2" min="20" max="500" required placeholder='Ingrese un valor'/>
 
           <div className="center separador">
             <button onClick={calcularPrecioEstimado}>Cotizar</button>
@@ -166,6 +167,8 @@ const Form = () => {
             </span>
             )}
           </p>
+
+          <Historial />
 
           </div>
         </div>
