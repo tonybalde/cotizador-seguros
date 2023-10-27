@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../styles/Form.css";
 import Swal from 'sweetalert2';
+import moment from 'moment';
 
 const Form = () => {
   const [data, setData] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(''); // Inicialmente, no se selecciona nada
   const [selectedLocation, setSelectedLocation] = useState('');
   const [precioEstimado, setPrecioEstimado] = useState(0);
+  const [guardarVisible, setGuardarVisible] = useState(false);
+  
 
   useEffect(() => {
     // Realizar la solicitud con Axios
@@ -56,12 +59,39 @@ const Form = () => {
     
     if (propiedadFactor && ubicacionFactor) {
       const precioEstimado = costoM2 * metrosCuadrados * propiedadFactor * ubicacionFactor;
+      setGuardarVisible(true);
       setPrecioEstimado(precioEstimado);
       mostrarAlertaExitosa();
     } else {
       mostrarAlerta();
+      setGuardarVisible(false);
     }
   };
+
+
+  const handleGuardarClick = () => {
+    // Obtener la fecha y hora actual
+    const fechaHoraActual = moment().format('YYYY-MM-DD HH:mm:ss');
+  
+    // Crear un objeto que represente la consulta de la cotización con fecha y hora
+    const cotizacion = {
+      fechaHora: fechaHoraActual,
+      tipoPropiedad: selectedProperty,
+      ubicacion: selectedLocation,
+      metrosCuadrados: parseInt(document.getElementById("metros2").value, 10),
+      precioEstimado: precioEstimado,
+    };
+  
+    // Convertir el objeto en una cadena JSON
+    const cotizacionJSON = JSON.stringify(cotizacion);
+  
+    // Guardar la consulta de la cotización en el localStorage
+    localStorage.setItem('cotizacionGuardada', cotizacionJSON);
+  
+    alert('Cotización guardada en el historial');
+  };
+  
+
 
 
   return (
@@ -104,12 +134,19 @@ const Form = () => {
           </div>
 
           <div className="center separador">
-            <p className="importe">
-              Precio estimado: $ <span id="valorPoliza">{precioEstimado.toFixed(2)}</span>
-              <span className="guardar ocultar" title="Guardar en historial">
-                💾
-              </span>
-            </p>
+          <p className="importe">
+            Precio estimado: $ <span id="valorPoliza">{precioEstimado.toFixed(2)}</span>
+            {guardarVisible && (
+            <span
+              className="guardar"
+              title="Guardar en historial"
+              onClick={handleGuardarClick}
+            >
+            💾
+            </span>
+            )}
+          </p>
+
           </div>
         </div>
       )}
