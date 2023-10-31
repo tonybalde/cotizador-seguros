@@ -8,6 +8,13 @@ import Historial from "../components/Historial";
 
 
 const Form = () => {
+
+
+
+  const handleVerHistorialClick = () => {
+    history.push("/historial");
+  };
+
   const [data, setData] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(''); // Inicialmente, no se selecciona nada
   const [selectedLocation, setSelectedLocation] = useState('');
@@ -70,8 +77,9 @@ const Form = () => {
 
     if (propiedadFactor && ubicacionFactor) {
       const precioEstimado = costoM2 * metrosCuadrados * propiedadFactor * ubicacionFactor;
+      precioEstimado.toFixed(2);
       setGuardarVisible(true);
-      setPrecioEstimado(precioEstimado);
+      setPrecioEstimado(Number(precioEstimado.toFixed(2))); // Redondea a dos decimales
       mostrarAlertaExitosa();
     } else {
       mostrarAlerta();
@@ -167,9 +175,9 @@ const Form = () => {
             </span>
             )}
           </p>
-
-          <Historial />
-
+          <div>
+            <button className="history-btn-container" onClick={handleVerHistorialClick}>Ver Historial <img src={history} className="history-btn" alt=""/></button>
+          </div>
           </div>
         </div>
       )}
