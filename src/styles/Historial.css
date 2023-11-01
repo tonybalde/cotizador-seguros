@@ -1,0 +1,12 @@
+.titulo-historial{
+    text-align: center;
+    font-size: 32px;
+}
+
+table{
+    background-color: aliceblue;
+    color: #222;
+    border-radius: 12px;
+    margin: 8px;
+    padding: 8px;
+}

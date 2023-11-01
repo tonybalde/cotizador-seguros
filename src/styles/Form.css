@@ -44,8 +44,17 @@ select, input{
     font-weight: bold;
 }
 
-.history-icon{
-    height: 64px;
+.history-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.history-btn{
+    height: 32px;
     width: auto;
 }
 
