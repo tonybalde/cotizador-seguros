@@ -5,6 +5,13 @@
     gap: 8px;
 }
 
+.titulo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
 header{
     display: flex;
     flex-direction: column;

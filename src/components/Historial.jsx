@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "../styles/Historial.css";
 
 const Historial = () => {
   const [historialConsultas, setHistorialConsultas] = useState([]);
@@ -13,7 +14,7 @@ const Historial = () => {
 
   return (
     <div>
-      <h2>Historial de Consultas</h2>
+      <h2 className='titulo-historial'>Historial de Consultas</h2>
       <table>
         <thead>
           <tr>

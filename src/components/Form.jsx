@@ -4,16 +4,8 @@ import "../styles/Form.css";
 import history from "../assets/history.png";
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import Historial from "../components/Historial";
-
 
 const Form = () => {
-
-
-
-  const handleVerHistorialClick = () => {
-    history.push("/historial");
-  };
 
   const [data, setData] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(''); // Inicialmente, no se selecciona nada
@@ -175,9 +167,6 @@ const Form = () => {
             </span>
             )}
           </p>
-          <div>
-            <button className="history-btn-container" onClick={handleVerHistorialClick}>Ver Historial <img src={history} className="history-btn" alt=""/></button>
-          </div>
           </div>
         </div>
       )}
