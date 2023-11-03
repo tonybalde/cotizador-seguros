@@ -13,7 +13,7 @@ const Historial = () => {
   }, []);
 
   return (
-    <div>
+    <div className="historial-container">
       <h2 className='titulo-historial'>Historial de Consultas</h2>
       <table>
         <thead>

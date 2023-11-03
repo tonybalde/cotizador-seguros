@@ -10,3 +10,17 @@ table{
     margin: 8px;
     padding: 8px;
 }
+
+@media screen and(max-width:475px){
+    .historial-container{
+        width: 100%;
+    }
+
+    .titulo-historial{
+        font-size: 2rem;
+    }
+
+    table{
+        width: 100%;
+    }
+}

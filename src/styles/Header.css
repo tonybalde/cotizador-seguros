@@ -38,3 +38,16 @@ nav > ul > li {
     width: auto;
 }
 
+@media screen and (max-width: 475px){
+
+    .titulo-container{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+    .titulo-header{
+        font-size: 2rem;
+    }
+}
+

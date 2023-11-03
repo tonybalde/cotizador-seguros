@@ -9,7 +9,7 @@ function Header() {
         <div className="header-container">
          <header>
             <div className="titulo-container">
-                <h1>Cotizador de Seguros</h1><img src={house} alt="" className="house-icon"/>
+                <h1 className="titulo-header">Cotizador de Seguros</h1><img src={house} alt="" className="house-icon"/>
             </div>
             <nav>
                 <ul>
